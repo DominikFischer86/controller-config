@@ -1,0 +1,76 @@
+.wrapper {
+    width: 1600px;
+    height: 860px;
+    position: absolute;
+    border-top: 1px solid rgba(#fff, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 10px));
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 200px;
+        top: 300px;
+        width: calc(100% - 400px);
+        height: calc(100% - 400px);
+        background-image: url("./assets/joysticks.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+    }
+}
+
+.controlPanel {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 0px;
+    top: -36px;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+
+    button {
+        padding: 5px 10px;
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+}
+
+.configExists {
+    position: absolute;
+    top: -22px;
+    right: 0;
+    font-size: 12px;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 400px;
+    background: #fff;
+    border: 2px solid #000;
+    padding: 10px;
+    color: #000;
+    text-align: center;
+
+    h3 {
+        margin: 0;
+        border-bottom: 1px solid #000;
+        padding-bottom: 5px;
+    }
+
+    button {
+        background: #ccc;
+        margin-top: 10px;
+        margin: 5px;
+    }
+}
+
+.dialogContent {
+    background: #fff;
+    pointer-events: all;
+}

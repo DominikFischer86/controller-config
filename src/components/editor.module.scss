@@ -1,0 +1,55 @@
+.editor {
+    min-width: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ccc;
+    text-align: center;
+    // overflow-y: scroll;
+
+    button {
+        border: 1px solid #333;
+        color: #888;
+        background: none;
+
+        &[aria-selected="true"] {
+            outline: none;
+            color: #eee;
+            border: 0;
+        }
+    }
+
+    [role="tabpanel"] {
+        flex: content;
+        padding: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 8px rgba(green, 0.25);
+        -webkit-box-shadow: inset 0 0 8px rgba(green, 0.25);
+        background-color: rgba(#000, 0.25);
+    }
+
+    &#scrollbar::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #fff;
+        background-image: -webkit-gradient(
+            linear,
+            40% 0%,
+            75% 84%,
+            from(#4d9c41),
+            to(#164b0e),
+            color-stop(0.6, #54de5d)
+        );
+    }
+}
+
+.controlPanel {
+    text-align: center;
+    border-bottom: 2px dashed rgba(#fff, 0.2);
+    padding-bottom: 10px;
+}
