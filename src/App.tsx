@@ -39,7 +39,7 @@ export const modeColors = {
 
 const StyledDrawer = styled(Drawer)`
     .MuiPaper-root.MuiDrawer-paper {
-        background: #fff url("src/assets/prism.png");
+        background: #333 url("src/assets/tile-2.png");
         overflow-y: scroll;
         width: 40vw;
 
