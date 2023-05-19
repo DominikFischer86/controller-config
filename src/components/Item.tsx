@@ -117,7 +117,6 @@ const DraggableBox = ({ children, start, id }: any) => {
         const updatedConfig = [...config];
         const parentObject = updatedConfig.find((config) => config.id === id);
 
-        console.log(parentObject);
         parentObject.boxPositionStart[0] = data.x;
         parentObject.boxPositionStart[1] = data.y;
         setConfig(updatedConfig);
