@@ -157,11 +157,6 @@ function App() {
                 anchor={editorPosition}
                 id="scrollbar"
                 hideBackdrop={false}
-                sx={{
-                    '.MuiPaper-root.MuiDrawer-paper': {
-                        background: "#333 url('src/assets/tile-2.png')" 
-                    }
-                  }}
             >
                 <div className={styles.editorWrapper}>
                     <ThemeProvider theme={theme}>

@@ -21,15 +21,17 @@ export default function BlockLayout({
                     <BlockElement item={item} />
                 </div>
             ))}
-            {icons?.map((icon) => {
-                const iconName = icon?.split("icons/")[1]?.split(".svg")[0];
 
-                return (
-                    <div key={iconName} className={`${iconName}`}>
-                        <img src={icon} width={iconWidth} />
-                    </div>
-                );
-            })}
+            {icons !== undefined &&
+                icons.map((icon) => {
+                    const iconName = icon!.split("icons/")[1].split(".svg")[0];
+
+                    return (
+                        <div key={iconName} className={`${iconName}`}>
+                            <img src={icon} width={iconWidth} />
+                        </div>
+                    );
+                })}
         </div>
     );
 }

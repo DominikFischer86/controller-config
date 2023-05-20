@@ -44,3 +44,7 @@ button:focus,
 button:focus-visible {
     outline: none;
 }
+
+.MuiPaper-root.MuiDrawer-paper {
+    background: #333 url("./assets//tile-2.png");
+}
