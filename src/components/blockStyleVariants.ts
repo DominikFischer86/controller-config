@@ -111,7 +111,7 @@ const variantLeftAC134 = (type: "a" | "c", number: "1" | "3" | "4") => `
   .left-${type}${number}-up { grid-area: 1 / 1 / 2 / 4; align-self: center; text-align: center; }
   .left-${type}${number}-right { grid-area: 2 / 3 / 3 / 4; align-self: center; text-align: left; }
 
-  .${type.toUpperCase()}${number}Icon { grid-area: 2 / 2 / 3 / 3; align-self: end; text-align: center; border: 0; }
+  .A1Icon, .A3Icon, .A4Icon, .C1Icon { grid-area: 2 / 2 / 3 / 3; align-self: end; text-align: center; border: 0; }
   .left-${type}${number}-bottom { grid-area: 3 / 2 / 4 / 4; align-self: start; }
   .left-${type}${number}-left { grid-area: 2 / 1 / 3 / 2; align-self: center; text-align: right; }
   .left-${type}${number}-extra {
@@ -155,7 +155,7 @@ const variantRightAC134 = (type: "a" | "c", number: "1" | "3" | "4") => `
   .right-${type}${number}-up { grid-area: 1 / 1 / 2 / 4; align-self: center; text-align: center; }
   .right-${type}${number}-right { grid-area: 2 / 3 / 3 / 4; align-self: center; text-align: left; }
 
-  .${type.toUpperCase()}${number}Icon { grid-area: 2 / 2 / 3 / 3; align-self: end; text-align: center; border: 0; }
+  .A1Icon, .A3Icon, .A4Icon, .C1Icon { grid-area: 2 / 2 / 3 / 3; align-self: end; text-align: center; border: 0; }
   .right-${type}${number}-bottom { grid-area: 3 / 1 / 4 / 3; align-self: start; text-align: right;}
   .right-${type}${number}-left { grid-area: 2 / 1 / 3 / 2; align-self: center; text-align: right; }
   .right-${type}${number}-extra {

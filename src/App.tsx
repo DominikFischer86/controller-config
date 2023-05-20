@@ -39,7 +39,6 @@ export const modeColors = {
 
 const StyledDrawer = styled(Drawer)`
     .MuiPaper-root.MuiDrawer-paper {
-        background: #333 url("src/assets/tile-2.png");
         overflow-y: scroll;
         width: 40vw;
 
@@ -158,6 +157,11 @@ function App() {
                 anchor={editorPosition}
                 id="scrollbar"
                 hideBackdrop={false}
+                sx={{
+                    '.MuiPaper-root.MuiDrawer-paper': {
+                        background: "#333 url('src/assets/tile-2.png')" 
+                    }
+                  }}
             >
                 <div className={styles.editorWrapper}>
                     <ThemeProvider theme={theme}>

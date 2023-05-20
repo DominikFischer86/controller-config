@@ -22,7 +22,7 @@ export default function BlockLayout({
                 </div>
             ))}
             {icons?.map((icon) => {
-                const iconName = icon.split("icons/")[1].split(".svg")[0];
+                const iconName = icon?.split("icons/")[1]?.split(".svg")[0];
 
                 return (
                     <div key={iconName} className={`${iconName}`}>
