@@ -1,12 +1,11 @@
 import Xarrow, { Xwrapper, anchorType, useXarrow } from "react-xarrows";
 import styled from "styled-components";
-import { ControlScheme } from "../data/initialConfig";
+import { ControlScheme, colors } from "../data/initialConfig";
 import BlockLayout from "./blockLayout";
 import { getCustomBlockStyles } from "./blockStyleVariants";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { activeElement, initialConfigAtom } from "../state/configState";
 import { useAtom } from "jotai";
-import { colors } from "../App";
 
 interface StyledPropTypes {
     id: string;

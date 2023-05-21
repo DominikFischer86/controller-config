@@ -1,0 +1,31 @@
+.legend {
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(#000, 0.3);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(#fff, 0.2);
+    cursor: pointer;
+
+    > div:last-child {
+        margin-top: 10px;
+    }
+}
+
+.legendItem {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+
+    div {
+        flex-basis: 70%;
+        flex-grow: 1;
+        text-align: left;
+        font-weight: bold;
+
+        &:first-child {
+            flex-basis: 30%;
+            text-align: right;
+        }
+    }
+}

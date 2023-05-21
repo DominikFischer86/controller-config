@@ -1,6 +1,5 @@
-import { ControlScheme, modesArray } from "../data/initialConfig";
+import { ControlScheme, modeColors, modesArray } from "../data/initialConfig";
 import styled from "styled-components";
-import { modeColors } from "../App";
 
 interface Props {
     item: ControlScheme;

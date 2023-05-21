@@ -1,5 +1,5 @@
-import { colors } from "../App";
 import styles from "../App.module.scss";
+import { colors } from "../data/initialConfig";
 import { configExistsInLocalStorage, storageKey } from "../state/configState";
 
 interface Props {

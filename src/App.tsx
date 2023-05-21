@@ -6,7 +6,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 import styles from "./App.module.scss";
 import Item from "./components/Item";
-import { Config } from "./data/initialConfig";
+import { Config, colors } from "./data/initialConfig";
 import Editor from "./components/editor";
 
 import {
@@ -16,26 +16,7 @@ import {
 } from "./state/configState";
 import { theme } from "./styles/muiTheme";
 import ConfigStorageInfo from "./components/configStorageInfo";
-
-export const colors = {
-    orange: "#d47d1e",
-    blue: "#388ac4",
-    green: "#5d9438",
-    purple: "#4c2868",
-    red: "#b21e23",
-    yellow: "#c5ba20",
-    magenta: "#bc09bc",
-};
-
-export const modeColors = {
-    mining: colors.green,
-    scanning: colors.blue,
-    missile: colors.purple,
-    hold: colors.red,
-    "double tap": colors.yellow,
-    turret: colors.magenta,
-    salvage: colors.orange,
-};
+import Legend from "./components/legend";
 
 const StyledDrawer = styled(Drawer)`
     .MuiPaper-root.MuiDrawer-paper {
@@ -158,6 +139,7 @@ function App() {
                         />
                     ))}
                 </div>
+                <Legend />
             </div>
             <StyledDrawer
                 open={isOpenEditor}

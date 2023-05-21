@@ -28,6 +28,26 @@ export const modesArray = {
     salvage: "SV",
 };
 
+export const colors = {
+    orange: "#d47d1e",
+    blue: "#388ac4",
+    green: "#5d9438",
+    purple: "#4c2868",
+    red: "#b21e23",
+    yellow: "#c5ba20",
+    magenta: "#bc09bc",
+};
+
+export const modeColors = {
+    mining: colors.green,
+    scanning: colors.blue,
+    missile: colors.purple,
+    hold: colors.red,
+    "double tap": colors.yellow,
+    turret: colors.magenta,
+    salvage: colors.orange,
+};
+
 export interface InputScheme {
     primaryInput: string;
     secondaryInput?: string;
@@ -61,6 +81,7 @@ export interface Config {
 
 export interface Configs {
     inputBoxPositions: Config[];
+    legend: Legend;
 }
 
 export enum AnchorPosition {
@@ -71,7 +92,60 @@ export enum AnchorPosition {
     "auto",
 }
 
+export interface Entries {
+    color: string;
+    short: string;
+    text: string;
+}
+
+export interface Legend {
+    id: string;
+    boxPosition: number[];
+    entries: Entries[];
+}
+
 export const initialConfig: Configs = {
+    legend: {
+        id: "legend",
+        boxPosition: [1051, 874],
+        entries: [
+            {
+                color: modeColors.mining,
+                short: modesArray.mining,
+                text: "Mining",
+            },
+            {
+                color: modeColors.scanning,
+                short: modesArray.scanning,
+                text: "Scanning",
+            },
+            {
+                color: modeColors.missile,
+                short: modesArray.missile,
+                text: "Missile",
+            },
+            {
+                color: modeColors.hold,
+                short: modesArray.hold,
+                text: "Hold",
+            },
+            {
+                color: modeColors["double tap"],
+                short: modesArray["double tap"],
+                text: "Double Tap",
+            },
+            {
+                color: modeColors.turret,
+                short: modesArray.turret,
+                text: "Turret",
+            },
+            {
+                color: modeColors.salvage,
+                short: modesArray.salvage,
+                text: "Salvage",
+            },
+        ],
+    },
     inputBoxPositions: [
         // Left Side
         {
@@ -511,7 +585,7 @@ export const initialConfig: Configs = {
         {
             id: "left-d1-controls",
             title: "D1-Button",
-            boxPositionStart: [715, 500],
+            boxPositionStart: [715, 420],
             boxPositionEnd: [695, 165],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "bottom",
@@ -1204,8 +1278,8 @@ export const initialConfig: Configs = {
             title: "D1-Button",
             boxPositionStart: [980, 500],
             boxPositionEnd: [1065, 155],
-            startAnchorAttachmentSide: "bottom",
-            endAnchorAttachmentSide: "top",
+            startAnchorAttachmentSide: "top",
+            endAnchorAttachmentSide: "bottom",
             icons: [D1Icon],
             iconWidth: 34,
             controlScheme: [
@@ -1228,7 +1302,7 @@ export const initialConfig: Configs = {
         {
             id: "right-e-t-controls",
             title: "E/T Thrust Levers",
-            boxPositionStart: [940, 655],
+            boxPositionStart: [960, 655],
             boxPositionEnd: [1420, 400],
             startAnchorAttachmentSide: "right",
             endAnchorAttachmentSide: "bottom",
