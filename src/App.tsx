@@ -92,29 +92,29 @@ function App() {
     };
 
     return (
-        <> <div className={styles.controlPanel}>
-        <div className={styles.title}>
-            Star Citizen |{" "}
-            <span>
-                Dual VKB Gladiator NXT/NXT Evo Binding Chart
-            </span>
-        </div>
-        <div>
-            <button onClick={() => handleModalOpen("right")}>
-                Edit Left Joystick
-            </button>
-            <button onClick={handleSaveConfigToLocalStorage}>
-                Save Config
-            </button>
-            <button onClick={() => handleModalOpen("left")}>
-                Edit Right Joystick
-            </button>
-        </div>
-        <ConfigStorageInfo
-            download={download}
-            setOpenModal={setOpenModal}
-        />
-    </div>
+        <>
+            {" "}
+            <div className={styles.controlPanel}>
+                <div className={styles.title}>
+                    Star Citizen |{" "}
+                    <span>Dual VKB Gladiator NXT/NXT Evo Binding Chart</span>
+                </div>
+                <div>
+                    <button onClick={() => handleModalOpen("right")}>
+                        Edit Left Joystick
+                    </button>
+                    <button onClick={handleSaveConfigToLocalStorage}>
+                        Save Config
+                    </button>
+                    <button onClick={() => handleModalOpen("left")}>
+                        Edit Right Joystick
+                    </button>
+                </div>
+                <ConfigStorageInfo
+                    download={download}
+                    setOpenModal={setOpenModal}
+                />
+            </div>
             <div className={styles.wrapper}>
                 <div className={styles.canvas}>
                     {config.inputBoxPositions.map((block: Config) => (
