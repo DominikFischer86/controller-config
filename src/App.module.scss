@@ -1,9 +1,10 @@
 .wrapper {
     width: 2400px;
     height: 1080px;
-    position: relative;
-    // border-top: 1px solid rgba(#fff, 0.1);
-    // background: rgba(green, .1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .canvas {

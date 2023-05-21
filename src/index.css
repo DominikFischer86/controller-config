@@ -16,9 +16,7 @@
 
 body {
     background: #333 url("./assets//tile-2.png");
-    width: 2400px;
-    height: 1080px;
-    padding: 40px 0;
+    height: 100vh;
     margin: 0;
 }
 
