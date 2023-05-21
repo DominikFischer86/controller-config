@@ -1,35 +1,36 @@
 .wrapper {
-    width: 1600px;
-    height: 860px;
-    position: absolute;
-    border-top: 1px solid rgba(#fff, 0.1);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, calc(-50% + 10px));
+    width: 2400px;
+    height: 1080px;
+    position: relative;
+    // border-top: 1px solid rgba(#fff, 0.1);
+    // background: rgba(green, .1);
+}
 
-    &:before {
-        content: "";
-        position: absolute;
-        left: 200px;
-        top: 300px;
-        width: calc(100% - 400px);
-        height: calc(100% - 400px);
-        background-image: url("./assets/joysticks.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom center;
-    }
+.canvas {
+    position: absolute;
+    left: 300px;
+    top: 300px;
+    width: calc(100% - 600px);
+    height: calc(100% - 600px);
+    background-image: url("./assets/joysticks.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom center;
 }
 
 .controlPanel {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: row;
     left: 0px;
-    top: -36px;
+    top: 0;
     gap: 10px;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(#fff, 0.2);
+    width: calc(100% - 20px);
+    background: #333 url("./assets//tile-2.png");
+    z-index: 10000;
 
     button {
         padding: 5px 10px;
@@ -38,11 +39,20 @@
     }
 }
 
+.title {
+    align-self: center;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    span {
+        color: orange;
+    }
+}
+
 .configExists {
-    position: absolute;
-    top: -22px;
-    right: 0;
-    font-size: 12px;
+    font-size: 14px;
+    align-self: center;
+    font-weight: bold;
 }
 
 .modal {

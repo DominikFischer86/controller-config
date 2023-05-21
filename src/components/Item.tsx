@@ -21,7 +21,7 @@ const StyledStartInput: any = styled.div`
     color: #fff;
     padding: 10px;
     font-family: Myriad Pro Condensed;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 300;
     border-radius: 5px;
     letter-spacing: 0.75px;
@@ -114,9 +114,12 @@ const DraggableBox = ({ children, start, id }: any) => {
     const [config, setConfig] = useAtom(initialConfigAtom);
 
     const handleStop = (_e: DraggableEvent, data: DraggableData) => {
-        const updatedConfig = [...config];
-        const parentObject = updatedConfig.find((config) => config.id === id);
+        const updatedConfig = { ...config };
+        const parentObject = updatedConfig.inputBoxPositions.find(
+            (config) => config.id === id
+        );
 
+        if (!parentObject) return;
         parentObject.boxPositionStart[0] = data.x;
         parentObject.boxPositionStart[1] = data.y;
         setConfig(updatedConfig);

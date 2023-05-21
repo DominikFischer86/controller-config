@@ -8,6 +8,7 @@ import {
 import styles from "./controllerConfig.module.scss";
 import styled from "styled-components";
 import { Config } from "../data/initialConfig";
+import { anchorType } from "react-xarrows";
 
 const StyledButton = styled.button`
     padding: 0;
@@ -28,7 +29,7 @@ const StyledButton = styled.button`
 
 interface Props {
     handleAnchorButtonClick: (
-        side: string,
+        side: anchorType,
         id: string,
         type: "start" | "end"
     ) => void;

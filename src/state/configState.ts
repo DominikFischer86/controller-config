@@ -1,12 +1,12 @@
 import { atom } from "jotai";
-import { initialConfig } from "../data/initialConfig";
+import { Configs, initialConfig } from "../data/initialConfig";
 
 export const storageKey = "controller-config";
 export const configExistsInLocalStorage = Boolean(
     localStorage.getItem(storageKey)
 );
 
-const localStorageData = configExistsInLocalStorage
+const localStorageData: Configs = configExistsInLocalStorage
     ? JSON.parse(localStorage.getItem(storageKey) as string)
     : initialConfig;
 

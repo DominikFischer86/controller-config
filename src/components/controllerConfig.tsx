@@ -14,6 +14,8 @@ import InputBlock from "./inputBlock";
 
 import { modeValues } from "./blockElement";
 import AnchorPositionButtons from "./anchorPositionButtons";
+import { ControlScheme } from "../data/initialConfig";
+import { anchorType } from "react-xarrows";
 
 interface Props {
     type: "left" | "right";
@@ -64,11 +66,11 @@ export default function ControllerConfig({ type }: Props) {
     const [config, setConfig] = useAtom(initialConfigAtom);
     const [_element, setElement] = useAtom(activeElement);
 
-    const leftControllerData = config.filter((item: Config) =>
+    const leftControllerData = config.inputBoxPositions.filter((item: Config) =>
         item.id.includes("left-")
     );
-    const rightControllerData = config.filter((item: Config) =>
-        item.id.includes("right-")
+    const rightControllerData = config.inputBoxPositions.filter(
+        (item: Config) => item.id.includes("right-")
     );
     const selectedControllerData =
         type === "left" ? leftControllerData : rightControllerData;
@@ -90,10 +92,13 @@ export default function ControllerConfig({ type }: Props) {
         const inputName = (e.currentTarget as HTMLInputElement).name;
         const value = (e.currentTarget as HTMLInputElement).value;
 
-        const updatedConfig = [...config];
-        const parentObject = updatedConfig.find((config) => config.id === id);
+        const updatedConfig = { ...config };
+        console.log(updatedConfig);
+        const parentObject = updatedConfig.inputBoxPositions.find(
+            (config) => config.id === id
+        );
         const controlSchemeObject = parentObject?.controlScheme.find(
-            (scheme: Config) => scheme.id === inputName
+            (scheme: ControlScheme) => scheme.id === inputName
         );
 
         if (type === "primary")
@@ -116,10 +121,12 @@ export default function ControllerConfig({ type }: Props) {
         const selectedModes = modeIndex?.map((index) => modeValues[index]);
         const selectionName = (e.target as HTMLSelectElement).name;
 
-        const updatedConfig = [...config];
-        const parentObject = updatedConfig.find((config) => config.id === id);
+        const updatedConfig = { ...config };
+        const parentObject = updatedConfig.inputBoxPositions.find(
+            (config) => config.id === id
+        );
         const controlSchemeObject = parentObject?.controlScheme.find(
-            (scheme: Config) => scheme.id === boxId
+            (scheme: ControlScheme) => scheme.id === boxId
         );
 
         const newModesArray = updateArray(selectedModes, selectionName);
@@ -134,12 +141,16 @@ export default function ControllerConfig({ type }: Props) {
     };
 
     const handleAnchorButtonClick = (
-        side: string,
+        side: anchorType,
         id: string,
         type: "start" | "end"
     ) => {
-        const updatedConfig = [...config];
-        const parentObject = updatedConfig.find((config) => config.id === id);
+        const updatedConfig = { ...config };
+        const parentObject = updatedConfig.inputBoxPositions.find(
+            (config) => config.id === id
+        );
+
+        if (parentObject === undefined) return;
 
         type === "start"
             ? (parentObject.startAnchorAttachmentSide = side)
