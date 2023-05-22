@@ -17,6 +17,7 @@ import {
 import { theme } from "./styles/muiTheme";
 import ConfigStorageInfo from "./components/configStorageInfo";
 import Legend from "./components/legend";
+import Settings from "./components/settings";
 
 interface StyledPropTypes {
     fontSize: number;
@@ -53,12 +54,20 @@ const StyledDrawer = styled(Drawer)`
     }
 `;
 
+const SettingsDrawer = styled(Drawer)`
+    .MuiPaper-root.MuiDrawer-paper
+        width: 100%;
+        font-size: 20px;     
+    }
+`;
+
 function App() {
     const [config] = useAtom(initialConfigAtom);
     const [isOpenEditor, setIsOpenEditor] = useState(false);
     const [editorPosition, setEditorPosition] = useState<"left" | "right">(
         "left"
     );
+    const [settingsOpen, setSettingsOpen] = useState(false);
     const [_element, setElement] = useAtom(activeElement);
     const [openModal, setOpenModal] = useState(false);
     const [openNotification, setOpenNotification] = useState(false);
@@ -111,6 +120,9 @@ function App() {
                     </button>
                     <button onClick={handleSaveConfigToLocalStorage}>
                         Save Config
+                    </button>
+                    <button onClick={() => setSettingsOpen(true)}>
+                        General Settings
                     </button>
                     <button onClick={() => handleModalOpen("left")}>
                         Edit Right Joystick
@@ -188,6 +200,14 @@ function App() {
                     </button>
                 </div>
             </Modal>
+            <SettingsDrawer
+                open={settingsOpen}
+                ModalProps={{ onBackdropClick: () => setSettingsOpen(false) }}
+                anchor="bottom"
+                hideBackdrop={false}
+            >
+                <Settings />
+            </SettingsDrawer>
         </>
     );
 }

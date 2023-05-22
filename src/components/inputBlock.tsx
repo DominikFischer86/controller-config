@@ -33,7 +33,7 @@ interface Props {
     ) => void;
 }
 
-const stringToPascalCase = (string: string) => {
+export const stringToPascalCase = (string: string) => {
     return (string.match(/[a-zA-Z0-9]+/g) || [])
         .map((w) => `${w.charAt(0).toUpperCase()}${w.slice(1)}`)
         .join("");

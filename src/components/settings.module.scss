@@ -1,0 +1,45 @@
+.settingsContainer {
+    padding: 20px;
+    margin: 0 auto;
+    color: #fff;
+
+    h3 {
+        text-align: center;
+    }
+}
+
+.settingBoxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0;
+    justify-items: stretch;
+    align-items: center;
+
+    label {
+        color: #fff;
+        font-size: inherit;
+    }
+
+    select {
+        display: block;
+        font-size: 20px;
+        padding: 10px;
+        background: none;
+        border: 0;
+        color: #fff;
+        width: 100%;
+
+        option {
+            background: rgba(#000, 0.25);
+            color: #000;
+        }
+    }
+
+    > div {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid rgba(#fff, 0.2);
+    }
+}

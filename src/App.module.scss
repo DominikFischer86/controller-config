@@ -25,7 +25,6 @@
     flex-direction: row;
     left: 0px;
     top: 0;
-    gap: 10px;
     justify-content: space-between;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(#fff, 0.2);
@@ -37,6 +36,7 @@
         padding: 5px 10px;
         background: rgba(0, 0, 0, 0.5);
         color: #fff;
+        margin: 0 20px;
     }
 }
 

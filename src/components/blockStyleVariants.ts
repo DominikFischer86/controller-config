@@ -279,7 +279,7 @@ const variantRedTrigger = `
     grid-area: 1 / 2 / 2 / 3; 
     align-self: end;
     position: relative;
-    padding-left: 24px;
+    padding-left: 34px;
 
     &:before {
       content: "Stage One";
@@ -298,7 +298,7 @@ const variantRedTrigger = `
     grid-area: 2 / 2 / 3 / 3; 
     align-self: start;
     position: relative;
-    padding-left: 24px;
+    padding-left: 34px;
 
     &:before {
       content: "Stage Two";

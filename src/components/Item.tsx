@@ -57,7 +57,6 @@ interface Props {
 export default function Item({
     start,
     end,
-    colors,
     startId,
     endId,
     id,
@@ -103,9 +102,11 @@ export default function Item({
                     startAnchor={startAnchorAttachmentSide}
                     endAnchor={endAnchorAttachmentSide}
                     headShape="circle"
-                    headSize={2}
-                    color={colors.orange}
-                    strokeWidth={3}
+                    curveness={config.settings.curveness}
+                    gridBreak={config.settings.gridBreak}
+                    headSize={config.settings.headSize}
+                    color={config.settings.color}
+                    strokeWidth={config.settings.strokeWidth}
                     zIndex={1000}
                 />
             </Xwrapper>

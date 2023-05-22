@@ -93,7 +93,6 @@ export default function ControllerConfig({ type }: Props) {
         const value = (e.currentTarget as HTMLInputElement).value;
 
         const updatedConfig = { ...config };
-        console.log(updatedConfig);
         const parentObject = updatedConfig.inputBoxPositions.find(
             (config) => config.id === id
         );

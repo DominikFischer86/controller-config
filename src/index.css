@@ -30,6 +30,7 @@ body {
     background: #333 url("./assets//tile-2.png");
     height: 100vh;
     margin: 0;
+    overflow: hidden;
 }
 
 h1 {
