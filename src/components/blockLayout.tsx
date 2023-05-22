@@ -1,4 +1,6 @@
+import { useAtom } from "jotai";
 import { ControlScheme } from "../data/initialConfig";
+import { initialConfigAtom } from "../state/configState";
 import BlockElement from "./blockElement";
 
 interface Props {
@@ -14,6 +16,8 @@ export default function BlockLayout({
     icons,
     iconWidth,
 }: Props) {
+    const [config] = useAtom(initialConfigAtom);
+    
     return (
         <div className={id}>
             {controlScheme.map((item) => (
@@ -28,7 +32,7 @@ export default function BlockLayout({
 
                     return (
                         <div key={iconName} className={`${iconName}`}>
-                            <img src={icon} width={iconWidth} />
+                            <img src={icon} width={iconWidth as number*(config.settings.fontSize / 16)} />
                         </div>
                     );
                 })}
