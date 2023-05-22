@@ -17,7 +17,7 @@ export default function BlockLayout({
     iconWidth,
 }: Props) {
     const [config] = useAtom(initialConfigAtom);
-    
+
     return (
         <div className={id}>
             {controlScheme.map((item) => (
@@ -32,7 +32,13 @@ export default function BlockLayout({
 
                     return (
                         <div key={iconName} className={`${iconName}`}>
-                            <img src={icon} width={iconWidth as number*(config.settings.fontSize / 16)} />
+                            <img
+                                src={icon}
+                                width={
+                                    (iconWidth as number) *
+                                    (config.settings.fontSize / 16)
+                                }
+                            />
                         </div>
                     );
                 })}
