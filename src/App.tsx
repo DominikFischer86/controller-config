@@ -18,10 +18,16 @@ import { theme } from "./styles/muiTheme";
 import ConfigStorageInfo from "./components/configStorageInfo";
 import Legend from "./components/legend";
 
+interface StyledPropTypes {
+    fontSize: number;
+}
+
 const StyledDrawer = styled(Drawer)`
     .MuiPaper-root.MuiDrawer-paper {
         overflow-y: scroll;
         width: 40vw;
+
+        ${(props: StyledPropTypes) => `font-size: ${props.fontSize}px;`}
 
         &::-webkit-scrollbar-track {
             box-shadow: inset 0 0 8px rgba(#d47d1e, 0.25);
@@ -146,6 +152,7 @@ function App() {
                 anchor={editorPosition}
                 id="scrollbar"
                 hideBackdrop={false}
+                fontSize={config.settings.fontSize}
             >
                 <div className={styles.editorWrapper}>
                     <ThemeProvider theme={theme}>

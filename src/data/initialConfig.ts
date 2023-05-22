@@ -82,6 +82,7 @@ export interface Config {
 export interface Configs {
     inputBoxPositions: Config[];
     legend: Legend;
+    settings: Settings;
 }
 
 export enum AnchorPosition {
@@ -104,7 +105,16 @@ export interface Legend {
     entries: Entries[];
 }
 
+export interface Settings {
+    fontSize: number;
+    lineStyle: "grid" | "smooth";
+}
+
 export const initialConfig: Configs = {
+    settings: {
+        fontSize: 20,
+        lineStyle: "grid",
+    },
     legend: {
         id: "legend",
         boxPosition: [1051, 874],

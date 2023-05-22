@@ -35,7 +35,7 @@
 
     button {
         padding: 5px 10px;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.5);
         color: #fff;
     }
 }
@@ -44,6 +44,7 @@
     align-self: center;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 18px;
 
     span {
         color: orange;
@@ -51,7 +52,7 @@
 }
 
 .configExists {
-    font-size: 14px;
+    font-size: 20px;
     align-self: center;
     font-weight: bold;
 }

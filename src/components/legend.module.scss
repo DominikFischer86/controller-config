@@ -1,5 +1,6 @@
 .legend {
-    width: 180px;
+    width: auto;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     background: rgba(#000, 0.3);

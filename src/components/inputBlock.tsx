@@ -6,6 +6,11 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Modal } from "@mui/material";
+import styled from "styled-components";
+
+interface StyledPropTypes {
+    fontSize: number;
+}
 
 interface Props {
     itemId: string;
@@ -13,6 +18,7 @@ interface Props {
     value?: string | null;
     type: "primary" | "secondary" | "tertiary";
     mode?: string[] | null;
+    fontSize: number;
     handleInputChange: (
         e: React.SyntheticEvent,
         id: string,
@@ -33,19 +39,26 @@ const stringToPascalCase = (string: string) => {
         .join("");
 };
 
+const StyledInputBlock = styled.div`
+    input {
+        ${(props: StyledPropTypes) => `font-size: ${props.fontSize}px;`}
+    }
+`;
+
 export default function InputBlock({
     itemId,
     boxId,
     value,
     type,
     mode,
+    fontSize,
     handleInputChange,
     handleModesSelection,
 }: Props) {
     const [dialogOpen, setDialogOpen] = useState(false);
 
     return (
-        <>
+        <StyledInputBlock fontSize={fontSize}>
             <div className={styles.inputWithOptions}>
                 <input
                     onChange={(e) => handleInputChange(e, itemId, type)}
@@ -92,6 +105,6 @@ export default function InputBlock({
                     </FormGroup>
                 </div>
             </Modal>
-        </>
+        </StyledInputBlock>
     );
 }
