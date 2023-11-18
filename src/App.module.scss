@@ -68,6 +68,15 @@
     color: #000;
     text-align: center;
 
+    div {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
     h3 {
         margin: 0;
         border-bottom: 1px solid #000;

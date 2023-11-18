@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAtom } from "jotai";
 import Drawer from "@mui/material/Drawer";
 import { Modal } from "@mui/material";
@@ -6,7 +6,7 @@ import styled, { ThemeProvider } from "styled-components";
 
 import styles from "./App.module.scss";
 import Item from "./components/Item";
-import { Config, colors } from "./data/initialConfig";
+import { Config, colors, initialConfig } from "./data/initialConfig";
 import Editor from "./components/editor";
 
 import {
@@ -48,18 +48,21 @@ const StyledDrawer = styled(Drawer)`
 `;
 
 function App() {
-    const [config] = useAtom(initialConfigAtom);
+    const [config, setConfig] = useAtom(initialConfigAtom);
     const [isOpenEditor, setIsOpenEditor] = useState(false);
     const [editorPosition, setEditorPosition] = useState<"left" | "right">(
         "left"
     );
+
+    console.log(config)
     const [_element, setElement] = useAtom(activeElement);
     const [openModal, setOpenModal] = useState(false);
-    const [openNotification, setOpenNotification] = useState(false);
+    const [openNotification, setOpenNotification] = useState({state: false, message: ""});
+    const [openUploadModal, setOpenUploadModal] = useState(false);
 
     const handleSaveConfigToLocalStorage = () => {
         localStorage.setItem(storageKey, JSON.stringify(config));
-        setOpenNotification(true);
+        setOpenNotification({ state: true, message: "Config has been saved to localStorage!" });
     };
 
     const handleModalOpen = (side: string) => {
@@ -77,6 +80,7 @@ function App() {
     const handleConfigReset = () => {
         localStorage.removeItem(storageKey);
         setOpenModal(false);
+        setConfig(initialConfig);
     };
 
     const download = () => {
@@ -90,6 +94,31 @@ function App() {
         a.download = filename + ".json";
         a.click();
     };
+
+    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target && event.target.files) {
+            const formData = new FormData();
+            formData.append("file", event.target.files[0])
+
+            try {
+                const result = await fetch("https://httpbin.org/post", {
+                    method: "POST",
+                    body: formData,
+                });
+                const data = await result.json();
+
+                if (data) {
+                    setConfig(JSON.parse(data.files.file))
+                    localStorage.setItem(storageKey, JSON.stringify(JSON.parse(data.files.file)));
+                    setOpenNotification({ state: true, message: "Config has been loaded successfully!" });
+                    setOpenUploadModal(false);
+                }
+            }
+            catch(error) {
+                console.log(error)
+            }
+        }
+    }
 
     return (
         <>
@@ -112,6 +141,7 @@ function App() {
                 </div>
                 <ConfigStorageInfo
                     download={download}
+                    upload={() => setOpenUploadModal(true)}
                     setOpenModal={setOpenModal}
                 />
             </div>
@@ -170,15 +200,30 @@ function App() {
                 </div>
             </Modal>
             <Modal
-                open={openNotification}
-                onClose={() => setOpenNotification(false)}
+                open={openNotification.state}
+                onClose={() => setOpenNotification({ state: false, message: "" })}
                 aria-labelledby="confirm-notification"
             >
                 <div className={styles.modal}>
-                    <h3>Config has been saved to localStorage!</h3>
-                    <button onClick={() => setOpenNotification(false)}>
+                    <h3>{openNotification.message}</h3>
+                    <button onClick={() => setOpenNotification({ state: false, message: "" })}>
                         Cool, thanks!
                     </button>
+                </div>
+            </Modal>
+            <Modal
+                open={openUploadModal}
+                onClose={() => setOpenUploadModal(false)}
+                aria-labelledby="upload-modal"
+            >
+                <div className={styles.modal}>
+                    <h3>Select config file to upload</h3>
+                    <div>
+                        <label htmlFor="file" className="sr-only">
+                            Choose a file: {" "}
+                        </label>
+                        <input id="file" type="file" accept=".json" onChange={handleFileUpload} />
+                    </div>
                 </div>
             </Modal>
         </>

@@ -4,10 +4,11 @@ import { configExistsInLocalStorage, storageKey } from "../state/configState";
 
 interface Props {
     download: () => void;
+    upload: () => void;
     setOpenModal: (_: boolean) => void;
 }
 
-export default function ConfigStorageInfo({ download, setOpenModal }: Props) {
+export default function ConfigStorageInfo({ download, upload, setOpenModal }: Props) {
     return (
         <div className={styles.configExists}>
             {configExistsInLocalStorage && (
@@ -35,6 +36,13 @@ export default function ConfigStorageInfo({ download, setOpenModal }: Props) {
                     </span>
                 </>
             )}
+            {" "}|
+            {" "}
+            <span 
+                style={{ color: colors.orange, cursor: "pointer" }}
+                onClick={upload}>
+                    Load config
+            </span>
         </div>
     );
 }
