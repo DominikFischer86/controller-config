@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAtom } from "jotai";
 import Drawer from "@mui/material/Drawer";
 import { Modal } from "@mui/material";
@@ -54,7 +54,6 @@ function App() {
         "left"
     );
 
-    console.log(config)
     const [_element, setElement] = useAtom(activeElement);
     const [openModal, setOpenModal] = useState(false);
     const [openNotification, setOpenNotification] = useState({state: false, message: ""});
