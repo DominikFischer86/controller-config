@@ -17,11 +17,18 @@ import {
 import { theme } from "./styles/muiTheme";
 import ConfigStorageInfo from "./components/configStorageInfo";
 import Legend from "./components/legend";
+import Settings from "./components/settings";
+
+interface StyledPropTypes {
+    fontSize: number;
+}
 
 const StyledDrawer = styled(Drawer)`
     .MuiPaper-root.MuiDrawer-paper {
         overflow-y: scroll;
         width: 40vw;
+
+        ${(props: StyledPropTypes) => `font-size: ${props.fontSize}px;`}
 
         &::-webkit-scrollbar-track {
             box-shadow: inset 0 0 8px rgba(#d47d1e, 0.25);
@@ -47,6 +54,13 @@ const StyledDrawer = styled(Drawer)`
     }
 `;
 
+const SettingsDrawer = styled(Drawer)`
+    .MuiPaper-root.MuiDrawer-paper
+        width: 100%;
+        font-size: 20px;     
+    }
+`;
+
 function App() {
     const [config, setConfig] = useAtom(initialConfigAtom);
     const [isOpenEditor, setIsOpenEditor] = useState(false);
@@ -55,6 +69,7 @@ function App() {
     );
 
     const [_element, setElement] = useAtom(activeElement);
+    const [settingsOpen, setSettingsOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
     const [openNotification, setOpenNotification] = useState({state: false, message: ""});
     const [openUploadModal, setOpenUploadModal] = useState(false);
@@ -63,6 +78,8 @@ function App() {
         localStorage.setItem(storageKey, JSON.stringify(config));
         setOpenNotification({ state: true, message: "Config has been saved to localStorage!" });
     };
+
+    console.log(config)
 
     const handleModalOpen = (side: string) => {
         side !== "left"
@@ -134,6 +151,9 @@ function App() {
                     <button onClick={handleSaveConfigToLocalStorage}>
                         Save Config
                     </button>
+                    <button onClick={() => setSettingsOpen(true)}>
+                        General Settings
+                    </button>
                     <button onClick={() => handleModalOpen("left")}>
                         Edit Right Joystick
                     </button>
@@ -175,6 +195,7 @@ function App() {
                 anchor={editorPosition}
                 id="scrollbar"
                 hideBackdrop={false}
+                fontSize={config.settings.fontSize}
             >
                 <div className={styles.editorWrapper}>
                     <ThemeProvider theme={theme}>
@@ -225,6 +246,14 @@ function App() {
                     </div>
                 </div>
             </Modal>
+            <SettingsDrawer
+                open={settingsOpen}
+                ModalProps={{ onBackdropClick: () => setSettingsOpen(false) }}
+                anchor="bottom"
+                hideBackdrop={false}
+            >
+                <Settings />
+            </SettingsDrawer>
         </>
     );
 }

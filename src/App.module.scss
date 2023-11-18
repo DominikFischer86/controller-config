@@ -5,6 +5,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
 }
 
 .canvas {
@@ -25,7 +26,6 @@
     flex-direction: row;
     left: 0px;
     top: 0;
-    gap: 10px;
     justify-content: space-between;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(#fff, 0.2);
@@ -35,8 +35,9 @@
 
     button {
         padding: 5px 10px;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.5);
         color: #fff;
+        margin: 0 20px;
     }
 }
 
@@ -44,6 +45,7 @@
     align-self: center;
     text-transform: uppercase;
     font-weight: bold;
+    font-size: 18px;
 
     span {
         color: orange;
@@ -51,7 +53,7 @@
 }
 
 .configExists {
-    font-size: 14px;
+    font-size: 20px;
     align-self: center;
     font-weight: bold;
 }

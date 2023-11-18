@@ -1,8 +1,8 @@
 const variantLeftDirectionControls = `
   .left-direction-controls {
     display: grid;
-    grid-template-columns: 50px 1fr;
-    grid-template-rows: 1fr 1fr auto;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto auto;
     grid-column-gap: 10px;
     grid-row-gap: 0;
     justify-items: center;
@@ -44,8 +44,8 @@ const variantLeftDirectionControls = `
 const variantRightDirectionControls = `
   .right-direction-controls {
     display: grid;
-    grid-template-columns: 1fr 50px;
-    grid-template-rows: 1fr 1fr auto;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto auto;
     grid-column-gap: 10px;
     grid-row-gap: 0px;
     justify-items: center;
@@ -93,8 +93,8 @@ const variantRightDirectionControls = `
 const variantLeftAC134 = (type: "a" | "c", number: "1" | "3" | "4") => `
   .left-${type}${number}-controls {
     display: grid;
-    grid-template-columns: auto 60px auto;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
     grid-column-gap: 12px;
     grid-row-gap: 5px;
     justify-items: center;
@@ -137,8 +137,8 @@ const variantLeftAC134 = (type: "a" | "c", number: "1" | "3" | "4") => `
 const variantRightAC134 = (type: "a" | "c", number: "1" | "3" | "4") => `
   .right-${type}${number}-controls {
     display: grid;
-    grid-template-columns: auto 60px auto;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
     grid-column-gap: 12px;
     grid-row-gap: 5px;
     justify-items: center;
@@ -262,7 +262,7 @@ const variantET = `
 const variantRedTrigger = `
   .left-red-trigger-controls, .right-red-trigger-controls {
     display: grid;
-    grid-template-columns: 40px, 1fr;
+    grid-template-columns: auto, 1fr;
     grid-template-rows: repeat(2, auto);
     grid-column-gap: 10px;
     grid-row-gap: 5px;
@@ -279,7 +279,7 @@ const variantRedTrigger = `
     grid-area: 1 / 2 / 2 / 3; 
     align-self: end;
     position: relative;
-    padding-left: 24px;
+    padding-left: 34px;
 
     &:before {
       content: "Stage One";
@@ -298,7 +298,7 @@ const variantRedTrigger = `
     grid-area: 2 / 2 / 3 / 3; 
     align-self: start;
     position: relative;
-    padding-left: 24px;
+    padding-left: 34px;
 
     &:before {
       content: "Stage Two";
@@ -317,20 +317,16 @@ const variantRedTrigger = `
 const variantBlackTrigger = `
   .left-black-trigger-controls, .right-black-trigger-controls {
     display: grid;
-    grid-template-columns: 24px 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: repeat(3, auto);
-    grid-column-gap: px;
-    grid-row-gap: 0px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
   }
 
   .TriggerIcon { 
     grid-area: 1 / 1 / 2 / 3;
     align-self: center; 
     text-align: center;
-    
-    img {
-      width: 20px;
-    }
   }
 
   .right-black-trigger-controls .TriggerIcon {

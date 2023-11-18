@@ -93,7 +93,6 @@ export default function ControllerConfig({ type }: Props) {
         const value = (e.currentTarget as HTMLInputElement).value;
 
         const updatedConfig = { ...config };
-        console.log(updatedConfig);
         const parentObject = updatedConfig.inputBoxPositions.find(
             (config) => config.id === id
         );
@@ -184,6 +183,7 @@ export default function ControllerConfig({ type }: Props) {
                                         boxId={box.id}
                                         value={box.inputs.primaryInput}
                                         mode={box.modes.primaryMode}
+                                        fontSize={config.settings.fontSize}
                                         handleInputChange={handleInputChange}
                                         handleModesSelection={
                                             handleModesSelection
@@ -196,6 +196,7 @@ export default function ControllerConfig({ type }: Props) {
                                             boxId={box.id}
                                             value={box.inputs.secondaryInput}
                                             mode={box.modes.secondaryMode}
+                                            fontSize={config.settings.fontSize}
                                             handleInputChange={
                                                 handleInputChange
                                             }
@@ -211,6 +212,7 @@ export default function ControllerConfig({ type }: Props) {
                                             boxId={box.id}
                                             value={box.inputs.tertiaryInput}
                                             mode={box.modes.tertiaryMode}
+                                            fontSize={config.settings.fontSize}
                                             handleInputChange={
                                                 handleInputChange
                                             }

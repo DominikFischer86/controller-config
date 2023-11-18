@@ -12,6 +12,7 @@ interface StyledPropTypes {
     posX: number;
     posY: number;
     isActive?: boolean;
+    fontSize: number;
 }
 
 const StyledStartInput: any = styled.div`
@@ -19,12 +20,11 @@ const StyledStartInput: any = styled.div`
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
     padding: 10px;
-    font-family: Myriad Pro Condensed;
-    font-size: 16px;
     font-weight: 300;
     border-radius: 5px;
     letter-spacing: 0.75px;
     border: 2px solid rgba(0, 0, 0, 0);
+    ${(props: StyledPropTypes) => `font-size: ${props.fontSize}px;`}
 
     ${(props: StyledPropTypes) =>
         props.isActive &&
@@ -57,7 +57,6 @@ interface Props {
 export default function Item({
     start,
     end,
-    colors,
     startId,
     endId,
     id,
@@ -68,12 +67,17 @@ export default function Item({
     iconWidth,
 }: Props) {
     const [element] = useAtom(activeElement);
+    const [config] = useAtom(initialConfigAtom);
 
     return (
         <>
             <Xwrapper>
                 <DraggableBox id={id} start={start}>
-                    <StyledStartInput id={startId} isActive={element === id}>
+                    <StyledStartInput
+                        id={startId}
+                        isActive={element === id}
+                        fontSize={config.settings.fontSize}
+                    >
                         <BlockLayout
                             controlScheme={controlScheme}
                             id={id}
@@ -94,13 +98,15 @@ export default function Item({
                     start={startId}
                     end={endId}
                     showXarrow={!!end}
-                    path="grid"
+                    path={config.settings.lineStyle}
                     startAnchor={startAnchorAttachmentSide}
                     endAnchor={endAnchorAttachmentSide}
                     headShape="circle"
-                    headSize={2}
-                    color={colors.orange}
-                    strokeWidth={3}
+                    curveness={config.settings.curveness}
+                    gridBreak={config.settings.gridBreak}
+                    headSize={config.settings.headSize}
+                    color={config.settings.color}
+                    strokeWidth={config.settings.strokeWidth}
                     zIndex={1000}
                 />
             </Xwrapper>

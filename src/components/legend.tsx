@@ -4,6 +4,16 @@ import { useAtom } from "jotai";
 import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { Xwrapper, useXarrow } from "react-xarrows";
 import { initialConfigAtom } from "../state/configState";
+import styled from "styled-components";
+
+interface StyledPropTypes {
+    fontSize: number;
+}
+
+const StyledLegendItem = styled.div`
+    ${(props: StyledPropTypes) => `font-size: ${props.fontSize}px;`}
+`;
+
 export default function Legend() {
     const [config] = useAtom(initialConfigAtom);
     return (
@@ -11,14 +21,20 @@ export default function Legend() {
             <DraggableBox start={config.legend.boxPosition}>
                 <div className={styles.legend}>
                     {config.legend.entries.map((entry) => (
-                        <div className={styles.legendItem} key={entry.short}>
+                        <StyledLegendItem
+                            className={styles.legendItem}
+                            key={entry.short}
+                            fontSize={config.settings.fontSize}
+                        >
                             <div style={{ color: entry.color }}>
                                 [{entry.short}]
                             </div>
                             <div>{entry.text}</div>
-                        </div>
+                        </StyledLegendItem>
                     ))}
-                    <div>* Mode Switch not used</div>
+                    <StyledLegendItem fontSize={config.settings.fontSize}>
+                        * Mode Switch not used
+                    </StyledLegendItem>
                 </div>
             </DraggableBox>
         </Xwrapper>
