@@ -79,8 +79,6 @@ function App() {
         setOpenNotification({ state: true, message: "Config has been saved to localStorage!" });
     };
 
-    console.log(config)
-
     const handleModalOpen = (side: string) => {
         side !== "left"
             ? setEditorPosition("right")
