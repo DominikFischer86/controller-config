@@ -97,6 +97,12 @@ function App() {
         setConfig(initialConfig);
     };
 
+    const handleHideInput = () => {
+        const updatedConfig = { ...config };
+        config.settings.hideEmptyInputs = !config.settings.hideEmptyInputs
+        setConfig(updatedConfig);
+    }
+
     const download = () => {
         const filename = prompt("Choose file name for download");
         if (!filename) return;
@@ -198,8 +204,10 @@ function App() {
                 <div className={styles.editorWrapper}>
                     <ThemeProvider theme={theme}>
                         <Editor
-                            closeDrawer={closeDrawer}
                             drawerSide={editorPosition}
+                            hideEmptyInputs={config.settings.hideEmptyInputs}
+                            handleHideInput={handleHideInput}
+                            closeDrawer={closeDrawer}
                         />
                     </ThemeProvider>
                 </div>

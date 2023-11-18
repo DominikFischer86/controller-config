@@ -106,6 +106,7 @@ export interface Legend {
 }
 
 export interface SettingsTypes {
+    hideEmptyInputs: boolean;
     fontSize: number;
     lineStyle: "grid" | "smooth";
     gridBreak: string;
@@ -117,6 +118,7 @@ export interface SettingsTypes {
 
 export const initialConfig: Configs = {
     settings: {
+        hideEmptyInputs: false,
         fontSize: 18,
         lineStyle: "grid",
         gridBreak: "50%",

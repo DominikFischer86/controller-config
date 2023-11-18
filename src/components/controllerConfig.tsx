@@ -179,6 +179,7 @@ export default function ControllerConfig({ type }: Props) {
                                     <label>{box.label}</label>
                                     <InputBlock
                                         itemId={item.id}
+                                        hideEmptyInputs={config.settings.hideEmptyInputs}
                                         type="primary"
                                         boxId={box.id}
                                         value={box.inputs.primaryInput}
@@ -192,6 +193,7 @@ export default function ControllerConfig({ type }: Props) {
                                     {box.inputs.secondaryInput !== null && (
                                         <InputBlock
                                             itemId={item.id}
+                                            hideEmptyInputs={config.settings.hideEmptyInputs}
                                             type="secondary"
                                             boxId={box.id}
                                             value={box.inputs.secondaryInput}
@@ -208,6 +210,7 @@ export default function ControllerConfig({ type }: Props) {
                                     {box.inputs.tertiaryInput !== null && (
                                         <InputBlock
                                             itemId={item.id}
+                                            hideEmptyInputs={config.settings.hideEmptyInputs}
                                             type="tertiary"
                                             boxId={box.id}
                                             value={box.inputs.tertiaryInput}

@@ -15,6 +15,7 @@ interface StyledPropTypes {
 interface Props {
     itemId: string;
     boxId: string;
+    hideEmptyInputs: boolean;
     value?: string | null;
     type: "primary" | "secondary" | "tertiary";
     mode?: string[] | null;
@@ -47,6 +48,7 @@ const StyledInputBlock = styled.div`
 
 export default function InputBlock({
     itemId,
+    hideEmptyInputs,
     boxId,
     value,
     type,
@@ -56,6 +58,8 @@ export default function InputBlock({
     handleModesSelection,
 }: Props) {
     const [dialogOpen, setDialogOpen] = useState(false);
+
+    if (!value && !hideEmptyInputs) return null;
 
     return (
         <StyledInputBlock fontSize={fontSize}>
