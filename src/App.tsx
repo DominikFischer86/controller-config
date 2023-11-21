@@ -128,8 +128,9 @@ function App() {
                 const data = await result.json();
 
                 if (data) {
-                    setConfig(JSON.parse(data.files.file))
-                    localStorage.setItem(storageKey, JSON.stringify(JSON.parse(data.files.file)));
+                    const mendedData = {...initialConfig, ...JSON.parse(data.files.file)}
+                    setConfig(mendedData)
+                    localStorage.setItem(storageKey, JSON.stringify(mendedData));
                     setOpenNotification({ state: true, message: "Config has been loaded successfully!" });
                     setOpenUploadModal(false);
                 }
