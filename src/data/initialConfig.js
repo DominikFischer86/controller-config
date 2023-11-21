@@ -1,4 +1,4 @@
-const initial = {
+const working = {
     "settings": {
         "fontSize": 16,
         "lineStyle": "smooth",
