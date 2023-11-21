@@ -67,8 +67,6 @@ function App() {
     const [editorPosition, setEditorPosition] = useState<"left" | "right">(
         "left"
     );
-
-    console.log(config)
 ;
     const [_element, setElement] = useAtom(activeElement);
     const [settingsOpen, setSettingsOpen] = useState(false);
