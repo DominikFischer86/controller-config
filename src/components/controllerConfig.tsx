@@ -3,7 +3,7 @@ import styles from "./controllerConfig.module.scss";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import { ExpandMoreOutlined } from "@mui/icons-material";
+import { ExpandMoreOutlined, Visibility, VisibilityOff } from "@mui/icons-material";
 
 import { Config } from "../data/initialConfig";
 import React from "react";
@@ -76,6 +76,14 @@ export default function ControllerConfig({ type }: Props) {
         type === "left" ? leftControllerData : rightControllerData;
 
     const [expanded, setExpanded] = React.useState<string | false>(false);
+
+    const handleVisibilityChange = (id: string, visible: boolean) => {
+        const updatedConfig = { ...config };
+        const parentObject = updatedConfig.inputBoxPositions.find(config => config.id === id)
+        parentObject!.visible = visible;
+
+        setConfig(updatedConfig);
+    }
 
     const handleChange =
         (panel: string) =>
@@ -169,14 +177,24 @@ export default function ControllerConfig({ type }: Props) {
                         expandIcon={<ExpandMoreOutlined />}
                         aria-controls={`${item.id}-content`}
                         id={`${item.id}-id`}
-                    >
+                    >                        
                         <div>{item.title}</div>
                     </StyledAccordionSummary>
                     <AccordionDetails>
+                        {item.visible ? (
+                        <div className={styles.visibility}>
+                            <Visibility onClick={() => handleVisibilityChange(item.id, false)} />
+                            Hide Box
+                        </div>) : (
+                        <div className={styles.visibility}>
+                            <VisibilityOff onClick={() => handleVisibilityChange(item.id, true)}/>
+                            Show Box
+                        </div>)}
                         {item.controlScheme.map((box) => {
                             return (
                                 <div className={styles.inputs} key={box.id}>
                                     <label>{box.label}</label>
+                                    
                                     <InputBlock
                                         itemId={item.id}
                                         hideEmptyInputs={config.settings.hideEmptyInputs}

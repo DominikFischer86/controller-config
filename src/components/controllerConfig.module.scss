@@ -11,6 +11,16 @@
     }
 }
 
+.visibility {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    border-bottom: 1px solid #5d9438;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
 .boxPositionWrapper {
     display: flex;
     flex-direction: row;

@@ -77,6 +77,7 @@ export interface Config {
     icons?: string[];
     iconWidth?: number;
     controlScheme: ControlScheme[];
+    visible: boolean;
 }
 
 export interface Configs {
@@ -179,6 +180,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [ZCWIcon, XYIcon],
             iconWidth: 50,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-z",
@@ -239,6 +241,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "top",
             icons: [A1Icon],
             iconWidth: 40,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-a1-up",
@@ -327,6 +330,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [A2Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-a2-press",
@@ -359,6 +363,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "left",
             icons: [A3Icon],
             iconWidth: 40,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-a3-up",
@@ -447,6 +452,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "left",
             icons: [A4Icon],
             iconWidth: 40,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-a4-up",
@@ -535,6 +541,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "left",
             icons: [B1Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-b1-press",
@@ -567,6 +574,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "left",
             icons: [C1Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-c1-up",
@@ -655,6 +663,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "bottom",
             icons: [D1Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-d1-press",
@@ -687,6 +696,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "bottom",
             icons: [T1Icon, E1Icon, E2Icon],
             iconWidth: 14,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-e1-upper-dial",
@@ -789,6 +799,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [F1Icon, F2Icon, F3Icon],
             iconWidth: 24,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-f2-press",
@@ -849,6 +860,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "left",
             icons: [TriggerIcon],
             iconWidth: 20,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-red-trigger-press-stage-one",
@@ -895,6 +907,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "right",
             icons: [TriggerIcon, UpDownIcon],
             iconWidth: 10,
+            visible: true,
             controlScheme: [
                 {
                     id: "left-black-trigger-press-up",
@@ -939,6 +952,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [ZCCWIcon, XYIcon],
             iconWidth: 50,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-z",
@@ -999,6 +1013,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [A1Icon],
             iconWidth: 40,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-a1-up",
@@ -1087,6 +1102,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "right",
             icons: [A2Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-a2-press",
@@ -1119,6 +1135,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [A3Icon],
             iconWidth: 40,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-a3-up",
@@ -1207,6 +1224,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [A4Icon],
             iconWidth: 40,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-a4-up",
@@ -1295,6 +1313,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "auto",
             icons: [B1Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-b1-press",
@@ -1327,6 +1346,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "bottom",
             icons: [C1Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-c1-up",
@@ -1415,6 +1435,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "bottom",
             icons: [D1Icon],
             iconWidth: 34,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-d1-press",
@@ -1447,6 +1468,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "bottom",
             icons: [E1Icon, T1Icon, E2Icon],
             iconWidth: 14,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-e1-upper-dial",
@@ -1549,6 +1571,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "bottom",
             icons: [F1Icon, F2Icon, F3Icon],
             iconWidth: 24,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-f2-press",
@@ -1609,6 +1632,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "bottom",
             icons: [TriggerIcon],
             iconWidth: 20,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-red-trigger-press-stage-one",
@@ -1655,6 +1679,7 @@ export const initialConfig: Configs = {
             endAnchorAttachmentSide: "top",
             icons: [TriggerIcon, UpDownIcon],
             iconWidth: 10,
+            visible: true,
             controlScheme: [
                 {
                     id: "right-black-trigger-press-up",

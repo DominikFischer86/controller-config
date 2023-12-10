@@ -68,6 +68,8 @@ function App() {
         "left"
     );
 
+    console.log(config)
+
     const [_element, setElement] = useAtom(activeElement);
     const [settingsOpen, setSettingsOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
@@ -171,7 +173,10 @@ function App() {
             </div>
             <div className={styles.wrapper}>
                 <div className={styles.canvas}>
-                    {config.inputBoxPositions.map((block: Config) => (
+                    {config.inputBoxPositions.map((block: Config) => {
+                        if (!block.visible) return;
+
+                        return (
                         <Item
                             key={block.id}
                             start={block.boxPositionStart}
@@ -190,7 +195,7 @@ function App() {
                             icons={block.icons}
                             iconWidth={block.iconWidth}
                         />
-                    ))}
+                    )})}
                 </div>
                 <Legend />
             </div>
