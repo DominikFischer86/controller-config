@@ -105,6 +105,21 @@ function App() {
         setConfig(updatedConfig);
     }
 
+    const handleHideBoxes = () => {
+        const updatedConfig = { ...config };
+
+        if (!confirm('Do you really want to toggle all boxes? Unsaved changes for visible boxes might be lost.')) return;
+        
+        if (updatedConfig.settings.hideBoxes){
+            config.settings.hideBoxes = false;
+            updatedConfig.inputBoxPositions.map(item => item.visible = false)
+        } else {
+            config.settings.hideBoxes = true;
+            updatedConfig.inputBoxPositions.map(item => item.visible = true)
+        }
+        setConfig(updatedConfig);
+    }
+
     const download = () => {
         const filename = prompt("Choose file name for download");
         if (!filename) return;
@@ -210,8 +225,10 @@ function App() {
                 <div className={styles.editorWrapper}>
                     <ThemeProvider theme={theme}>
                         <Editor
+                            hideBoxes={config.settings.hideBoxes}
                             drawerSide={editorPosition}
                             hideEmptyInputs={config.settings.hideEmptyInputs}
+                            handleHideBox={handleHideBoxes}
                             handleHideInput={handleHideInput}
                             closeDrawer={closeDrawer}
                         />
