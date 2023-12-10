@@ -10,6 +10,6 @@ const localStorageData: Configs = configExistsInLocalStorage
     ? JSON.parse(localStorage.getItem(storageKey) as string)
     : initialConfig;
 
-const mendedData = {...initialConfig, ...localStorageData}
+const mendedData = { ...initialConfig, ...localStorageData };
 export const initialConfigAtom = atom(mendedData);
 export const activeElement = atom(null);

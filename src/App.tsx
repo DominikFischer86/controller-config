@@ -68,17 +68,21 @@ function App() {
         "left"
     );
 
-    console.log(config)
-
     const [_element, setElement] = useAtom(activeElement);
     const [settingsOpen, setSettingsOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
-    const [openNotification, setOpenNotification] = useState({state: false, message: ""});
+    const [openNotification, setOpenNotification] = useState({
+        state: false,
+        message: "",
+    });
     const [openUploadModal, setOpenUploadModal] = useState(false);
 
     const handleSaveConfigToLocalStorage = () => {
         localStorage.setItem(storageKey, JSON.stringify(config));
-        setOpenNotification({ state: true, message: "Config has been saved to localStorage!" });
+        setOpenNotification({
+            state: true,
+            message: "Config has been saved to localStorage!",
+        });
     };
 
     const handleModalOpen = (side: string) => {
@@ -101,24 +105,33 @@ function App() {
 
     const handleHideInput = () => {
         const updatedConfig = { ...config };
-        config.settings.hideEmptyInputs = !config.settings.hideEmptyInputs
+        config.settings.hideEmptyInputs = !config.settings.hideEmptyInputs;
         setConfig(updatedConfig);
-    }
+    };
 
     const handleHideBoxes = () => {
         const updatedConfig = { ...config };
 
-        if (!confirm('Do you really want to toggle all boxes? Unsaved changes for visible boxes might be lost.')) return;
-        
-        if (updatedConfig.settings.hideBoxes){
+        if (
+            !confirm(
+                "Do you really want to toggle all boxes? Unsaved changes for visible boxes might be lost."
+            )
+        )
+            return;
+
+        if (updatedConfig.settings.hideBoxes) {
             config.settings.hideBoxes = false;
-            updatedConfig.inputBoxPositions.map(item => item.visible = false)
+            updatedConfig.inputBoxPositions.map(
+                (item) => (item.visible = false)
+            );
         } else {
             config.settings.hideBoxes = true;
-            updatedConfig.inputBoxPositions.map(item => item.visible = true)
+            updatedConfig.inputBoxPositions.map(
+                (item) => (item.visible = true)
+            );
         }
         setConfig(updatedConfig);
-    }
+    };
 
     const download = () => {
         const filename = prompt("Choose file name for download");
@@ -132,10 +145,12 @@ function App() {
         a.click();
     };
 
-    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileUpload = async (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         if (event.target && event.target.files) {
             const formData = new FormData();
-            formData.append("file", event.target.files[0])
+            formData.append("file", event.target.files[0]);
 
             try {
                 const result = await fetch("https://httpbin.org/post", {
@@ -145,18 +160,26 @@ function App() {
                 const data = await result.json();
 
                 if (data) {
-                    const mendedData = {...initialConfig, ...JSON.parse(data.files.file)}
-                    setConfig(mendedData)
-                    localStorage.setItem(storageKey, JSON.stringify(mendedData));
-                    setOpenNotification({ state: true, message: "Config has been loaded successfully!" });
+                    const mendedData = {
+                        ...initialConfig,
+                        ...JSON.parse(data.files.file),
+                    };
+                    setConfig(mendedData);
+                    localStorage.setItem(
+                        storageKey,
+                        JSON.stringify(mendedData)
+                    );
+                    setOpenNotification({
+                        state: true,
+                        message: "Config has been loaded successfully!",
+                    });
                     setOpenUploadModal(false);
                 }
-            }
-            catch(error) {
-                console.log(error)
+            } catch (error) {
+                console.log(error);
             }
         }
-    }
+    };
 
     return (
         <>
@@ -192,25 +215,26 @@ function App() {
                         if (!block.visible) return;
 
                         return (
-                        <Item
-                            key={block.id}
-                            start={block.boxPositionStart}
-                            end={block.boxPositionEnd}
-                            colors={colors}
-                            id={block.id}
-                            startId={block.id + "-start"}
-                            endId={block.id + "-end"}
-                            startAnchorAttachmentSide={
-                                block.startAnchorAttachmentSide
-                            }
-                            endAnchorAttachmentSide={
-                                block.endAnchorAttachmentSide
-                            }
-                            controlScheme={block.controlScheme}
-                            icons={block.icons}
-                            iconWidth={block.iconWidth}
-                        />
-                    )})}
+                            <Item
+                                key={block.id}
+                                start={block.boxPositionStart}
+                                end={block.boxPositionEnd}
+                                colors={colors}
+                                id={block.id}
+                                startId={block.id + "-start"}
+                                endId={block.id + "-end"}
+                                startAnchorAttachmentSide={
+                                    block.startAnchorAttachmentSide
+                                }
+                                endAnchorAttachmentSide={
+                                    block.endAnchorAttachmentSide
+                                }
+                                controlScheme={block.controlScheme}
+                                icons={block.icons}
+                                iconWidth={block.iconWidth}
+                            />
+                        );
+                    })}
                 </div>
                 <Legend />
             </div>
@@ -250,12 +274,18 @@ function App() {
             </Modal>
             <Modal
                 open={openNotification.state}
-                onClose={() => setOpenNotification({ state: false, message: "" })}
+                onClose={() =>
+                    setOpenNotification({ state: false, message: "" })
+                }
                 aria-labelledby="confirm-notification"
             >
                 <div className={styles.modal}>
                     <h3>{openNotification.message}</h3>
-                    <button onClick={() => setOpenNotification({ state: false, message: "" })}>
+                    <button
+                        onClick={() =>
+                            setOpenNotification({ state: false, message: "" })
+                        }
+                    >
                         Cool, thanks!
                     </button>
                 </div>
@@ -269,9 +299,14 @@ function App() {
                     <h3>Select config file to upload</h3>
                     <div>
                         <label htmlFor="file" className="sr-only">
-                            Choose a file: {" "}
+                            Choose a file:{" "}
                         </label>
-                        <input id="file" type="file" accept=".json" onChange={handleFileUpload} />
+                        <input
+                            id="file"
+                            type="file"
+                            accept=".json"
+                            onChange={handleFileUpload}
+                        />
                     </div>
                 </div>
             </Modal>

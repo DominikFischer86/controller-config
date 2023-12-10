@@ -8,7 +8,11 @@ interface Props {
     setOpenModal: (_: boolean) => void;
 }
 
-export default function ConfigStorageInfo({ download, upload, setOpenModal }: Props) {
+export default function ConfigStorageInfo({
+    download,
+    upload,
+    setOpenModal,
+}: Props) {
     return (
         <div className={styles.configExists}>
             {configExistsInLocalStorage && (
@@ -35,13 +39,13 @@ export default function ConfigStorageInfo({ download, upload, setOpenModal }: Pr
                         Reset config
                     </span>
                 </>
-            )}
-            {" "}|
-            {" "}
-            <span 
+            )}{" "}
+            |{" "}
+            <span
                 style={{ color: colors.orange, cursor: "pointer" }}
-                onClick={upload}>
-                    Load config
+                onClick={upload}
+            >
+                Load config
             </span>
         </div>
     );

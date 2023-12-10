@@ -132,7 +132,7 @@ export const initialConfig: Configs = {
     },
     legend: {
         id: "legend",
-        boxPosition: [1020,917],
+        boxPosition: [1020, 917],
         entries: [
             {
                 color: modeColors.mining,
@@ -231,14 +231,8 @@ export const initialConfig: Configs = {
         {
             id: "left-a1-controls",
             title: "A1-Stick",
-            boxPositionStart: [
-                -59,
-                -271
-              ],
-              boxPositionEnd: [
-                535,
-                80
-              ],
+            boxPositionStart: [-59, -271],
+            boxPositionEnd: [535, 80],
             startAnchorAttachmentSide: "bottom",
             endAnchorAttachmentSide: "top",
             icons: [A1Icon],
@@ -320,14 +314,8 @@ export const initialConfig: Configs = {
         {
             id: "left-a2-controls",
             title: "A2-Button",
-            boxPositionStart: [
-                275,
-                -261
-              ],
-              boxPositionEnd: [
-                540,
-                120
-              ],
+            boxPositionStart: [275, -261],
+            boxPositionEnd: [540, 120],
             startAnchorAttachmentSide: "bottom",
             endAnchorAttachmentSide: "auto",
             icons: [A2Icon],
@@ -353,14 +341,8 @@ export const initialConfig: Configs = {
         {
             id: "left-a3-controls",
             title: "A3 Stick",
-            boxPositionStart: [
-                -343,
-                -48
-              ],
-              boxPositionEnd: [
-                510,
-                105
-              ],
+            boxPositionStart: [-343, -48],
+            boxPositionEnd: [510, 105],
             startAnchorAttachmentSide: "right",
             endAnchorAttachmentSide: "left",
             icons: [A3Icon],
@@ -442,14 +424,8 @@ export const initialConfig: Configs = {
         {
             id: "left-a4-controls",
             title: "A4-Stick",
-            boxPositionStart: [
-                -347,
-                173
-              ],
-              boxPositionEnd: [
-                500,
-                70
-              ],
+            boxPositionStart: [-347, 173],
+            boxPositionEnd: [500, 70],
             startAnchorAttachmentSide: "right",
             endAnchorAttachmentSide: "left",
             icons: [A4Icon],
@@ -531,14 +507,8 @@ export const initialConfig: Configs = {
         {
             id: "left-b1-controls",
             title: "B1-Button",
-            boxPositionStart: [
-                527,
-                -268
-              ],
-              boxPositionEnd: [
-                780,
-                70
-              ],
+            boxPositionStart: [527, -268],
+            boxPositionEnd: [780, 70],
             startAnchorAttachmentSide: "bottom",
             endAnchorAttachmentSide: "left",
             icons: [B1Icon],
@@ -564,14 +534,8 @@ export const initialConfig: Configs = {
         {
             id: "left-c1-controls",
             title: "C1-Stick",
-            boxPositionStart: [
-                -353,
-                378
-              ],
-              boxPositionEnd: [
-                510,
-                180
-              ],
+            boxPositionStart: [-353, 378],
+            boxPositionEnd: [510, 180],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "left",
             icons: [C1Icon],
@@ -653,14 +617,8 @@ export const initialConfig: Configs = {
         {
             id: "left-d1-controls",
             title: "D1-Button",
-            boxPositionStart: [
-                709,
-                442
-              ],
-              boxPositionEnd: [
-                695,
-                165
-              ],
+            boxPositionStart: [709, 442],
+            boxPositionEnd: [695, 165],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "bottom",
             icons: [D1Icon],
@@ -686,14 +644,8 @@ export const initialConfig: Configs = {
         {
             id: "left-e-t-controls",
             title: "E/T Thrust Levers",
-            boxPositionStart: [
-                112,
-                701
-              ],
-              boxPositionEnd: [
-                380,
-                400
-              ],
+            boxPositionStart: [112, 701],
+            boxPositionEnd: [380, 400],
             startAnchorAttachmentSide: "top",
             endAnchorAttachmentSide: "bottom",
             icons: [T1Icon, E1Icon, E2Icon],
@@ -789,14 +741,8 @@ export const initialConfig: Configs = {
         {
             id: "left-f-controls",
             title: "F-Buttons",
-            boxPositionStart: [
-                -352,
-                684
-              ],
-              boxPositionEnd: [
-                410,
-                350
-              ],
+            boxPositionStart: [-352, 684],
+            boxPositionEnd: [410, 350],
             startAnchorAttachmentSide: "right",
             endAnchorAttachmentSide: "auto",
             icons: [F1Icon, F2Icon, F3Icon],
@@ -850,14 +796,8 @@ export const initialConfig: Configs = {
         {
             id: "left-red-trigger-controls",
             title: "Red Trigger",
-            boxPositionStart: [
-                412,
-                598
-              ],
-              boxPositionEnd: [
-                740,
-                100
-              ],
+            boxPositionStart: [412, 598],
+            boxPositionEnd: [740, 100],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "left",
             icons: [TriggerIcon],
@@ -897,14 +837,8 @@ export const initialConfig: Configs = {
         {
             id: "left-black-trigger-controls",
             title: "Black Trigger",
-            boxPositionStart: [
-                766,
-                -272
-              ],
-              boxPositionEnd: [
-                760,
-                100
-              ],
+            boxPositionStart: [766, -272],
+            boxPositionEnd: [760, 100],
             startAnchorAttachmentSide: "bottom",
             endAnchorAttachmentSide: "right",
             icons: [TriggerIcon, UpDownIcon],
@@ -944,10 +878,7 @@ export const initialConfig: Configs = {
         // Right Side
         {
             id: "right-direction-controls",
-            boxPositionStart: [
-                2032,
-                -290
-              ],
+            boxPositionStart: [2032, -290],
             title: "Direction Controls",
             boxPositionEnd: null,
             startAnchorAttachmentSide: "auto",
@@ -1003,14 +934,8 @@ export const initialConfig: Configs = {
         {
             id: "right-a1-controls",
             title: "A1-Stick",
-            boxPositionStart: [
-                1560,
-                -289
-              ],
-              boxPositionEnd: [
-                1240,
-                85
-              ],
+            boxPositionStart: [1560, -289],
+            boxPositionEnd: [1240, 85],
             startAnchorAttachmentSide: "bottom",
             endAnchorAttachmentSide: "auto",
             icons: [A1Icon],
@@ -1092,14 +1017,8 @@ export const initialConfig: Configs = {
         {
             id: "right-a2-controls",
             title: "A2-Button",
-            boxPositionStart: [
-                1299,
-                -286
-              ],
-              boxPositionEnd: [
-                1245,
-                125
-              ],
+            boxPositionStart: [1299, -286],
+            boxPositionEnd: [1245, 125],
             startAnchorAttachmentSide: "bottom",
             endAnchorAttachmentSide: "right",
             icons: [A2Icon],
@@ -1125,14 +1044,8 @@ export const initialConfig: Configs = {
         {
             id: "right-a3-controls",
             title: "A3 Stick",
-            boxPositionStart: [
-                1672,
-                41
-              ],
-              boxPositionEnd: [
-                1265,
-                105
-              ],
+            boxPositionStart: [1672, 41],
+            boxPositionEnd: [1265, 105],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "auto",
             icons: [A3Icon],
@@ -1214,14 +1127,8 @@ export const initialConfig: Configs = {
         {
             id: "right-a4-controls",
             title: "A4-Stick",
-            boxPositionStart: [
-                1704,
-                318
-              ],
-              boxPositionEnd: [
-                1272,
-                70
-              ],
+            boxPositionStart: [1704, 318],
+            boxPositionEnd: [1272, 70],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "auto",
             icons: [A4Icon],
@@ -1303,14 +1210,8 @@ export const initialConfig: Configs = {
         {
             id: "right-b1-controls",
             title: "B1-Button",
-            boxPositionStart: [
-                1077,
-                -284
-              ],
-              boxPositionEnd: [
-                980,
-                60
-              ],
+            boxPositionStart: [1077, -284],
+            boxPositionEnd: [980, 60],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "auto",
             icons: [B1Icon],
@@ -1336,14 +1237,8 @@ export const initialConfig: Configs = {
         {
             id: "right-c1-controls",
             title: "C1-Stick",
-            boxPositionStart: [
-                1794,
-                559
-              ],
-              boxPositionEnd: [
-                1274,
-                185
-              ],
+            boxPositionStart: [1794, 559],
+            boxPositionEnd: [1274, 185],
             startAnchorAttachmentSide: "auto",
             endAnchorAttachmentSide: "bottom",
             icons: [C1Icon],
@@ -1425,14 +1320,8 @@ export const initialConfig: Configs = {
         {
             id: "right-d1-controls",
             title: "D1-Button",
-            boxPositionStart: [
-                944,
-                548
-              ],
-              boxPositionEnd: [
-                1065,
-                155
-              ],
+            boxPositionStart: [944, 548],
+            boxPositionEnd: [1065, 155],
             startAnchorAttachmentSide: "top",
             endAnchorAttachmentSide: "bottom",
             icons: [D1Icon],
@@ -1458,14 +1347,8 @@ export const initialConfig: Configs = {
         {
             id: "right-e-t-controls",
             title: "E/T Thrust Levers",
-            boxPositionStart: [
-                964,
-                707
-              ],
-              boxPositionEnd: [
-                1420,
-                400
-              ],
+            boxPositionStart: [964, 707],
+            boxPositionEnd: [1420, 400],
             startAnchorAttachmentSide: "right",
             endAnchorAttachmentSide: "bottom",
             icons: [E1Icon, T1Icon, E2Icon],
@@ -1561,14 +1444,8 @@ export const initialConfig: Configs = {
         {
             id: "right-f-controls",
             title: "F-Buttons",
-            boxPositionStart: [
-                1723,
-                733
-              ],
-              boxPositionEnd: [
-                1385,
-                350
-              ],
+            boxPositionStart: [1723, 733],
+            boxPositionEnd: [1385, 350],
             startAnchorAttachmentSide: "left",
             endAnchorAttachmentSide: "bottom",
             icons: [F1Icon, F2Icon, F3Icon],
@@ -1622,14 +1499,8 @@ export const initialConfig: Configs = {
         {
             id: "right-red-trigger-controls",
             title: "Red Trigger",
-            boxPositionStart: [
-                1120,
-                527
-              ],
-              boxPositionEnd: [
-                1025,
-                100
-              ],
+            boxPositionStart: [1120, 527],
+            boxPositionEnd: [1025, 100],
             startAnchorAttachmentSide: "top",
             endAnchorAttachmentSide: "bottom",
             icons: [TriggerIcon],
@@ -1669,14 +1540,8 @@ export const initialConfig: Configs = {
         {
             id: "right-black-trigger-controls",
             title: "Black Trigger",
-            boxPositionStart: [
-                949,
-                -276
-              ],
-              boxPositionEnd: [
-                1000,
-                100
-              ],
+            boxPositionStart: [949, -276],
+            boxPositionEnd: [1000, 100],
             startAnchorAttachmentSide: "bottom",
             endAnchorAttachmentSide: "top",
             icons: [TriggerIcon, UpDownIcon],
