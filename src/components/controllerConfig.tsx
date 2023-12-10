@@ -184,7 +184,7 @@ export default function ControllerConfig({ type }: Props) {
                         aria-controls={`${item.id}-content`}
                         id={`${item.id}-id`}
                     >
-                        <div>{item.title}</div>
+                        <div>{item.title} {item.visible ? '' : ' (hidden)'}</div>
                     </StyledAccordionSummary>
                     <AccordionDetails>
                         {item.visible ? (
